@@ -9,7 +9,7 @@ image:
 
 replicaCount: 5
 
-resources: {}
+resources:
     limits:
         cpu: 500m
         memory: 256Mi
