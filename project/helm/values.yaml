@@ -8,7 +8,7 @@ service:
     type: ClusterIP
 
 image:
-    repository: allwi/techtrends
+    repository: allwicher/techtrends
     tag: latest
     pullPolicy: IfNotPresent
 
