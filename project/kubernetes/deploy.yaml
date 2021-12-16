@@ -19,7 +19,7 @@ spec:
         app: techtrends
     spec:
       containers:
-      - image: allwi/techtrends:latest
+      - image: allwicher/techtrends:latest
         name: techtrends
 
         resources:
