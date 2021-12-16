@@ -13,7 +13,7 @@ WORKDIR /app
 
 # run commands within the container. 
 # Install dependencies defined in the requirements.txt file.
-RUN pip install -r requirements.txt && python init_db.py
+RUN pip install -U pip wheel setuptools && pip install -r requirements.txt && python init_db.py
 
 # Start the `app.py` application.
 CMD [ "python", "app.py" ]

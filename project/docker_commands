@@ -2,20 +2,23 @@
 docker image build --tag=techtrends --file=dockerfile .
 
 ## Docker commands used to run the application
-docker run -p 7111:3111 techtrends
+docker run -p 7111:3111 -d techtrends
 
 ## Docker commands used to get the application logs
-docker ps
-docker logs 018bc598b4a5
+docker logs -f 73edf48fd2579ad03d6cbd33c9c4a5c9b51e03c04458c14beb20d936a8812b56
+where 73edf48fd2579ad03d6cbd33c9c4a5c9b51e03c04458c14beb20d936a8812b56 is the container ID returned by the docker run command in the detached mode
 
 ## Logs from the container running the TechTrends application
-> docker logs 018bc598b4a5
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-INFO: 2021-12-12 04:26:29,605 -  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO: 2021-12-12 04:26:37,046 - 172.17.0.1 - - [12/Dec/2021 04:26:37] "GET / HTTP/1.1" 200 -
-INFO: 2021-12-12 04:26:39,369 - Retrieved post '2020 CNCF Annual Report' ID 1
-INFO: 2021-12-12 04:26:39,376 - 172.17.0.1 - - [12/Dec/2021 04:26:39] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug - [2021-12-16 04:30:52,503] _log: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug - [2021-12-16 04:31:54,429] _log:172.17.0.1 - - [16/Dec/2021 04:31:54] "GET / HTTP/1.1" 200 -
+DEBUG:app - [2021-12-16 04:31:56,133] post:Retrieved post 'Kubernetes v1.20 Release Notes' ID 3
+INFO:werkzeug - [2021-12-16 04:31:56,140] _log:172.17.0.1 - - [16/Dec/2021 04:31:56] "GET /3 HTTP/1.1" 200 -
+INFO:werkzeug - [2021-12-16 04:31:59,388] _log:172.17.0.1 - - [16/Dec/2021 04:31:59] "GET /create HTTP/1.1" 200 -
+INFO:app - [2021-12-16 04:32:28,228] create:Created article 'Log4J vulnerability'
+INFO:werkzeug - [2021-12-16 04:32:28,230] _log:172.17.0.1 - - [16/Dec/2021 04:32:28] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug - [2021-12-16 04:32:28,242] _log:172.17.0.1 - - [16/Dec/2021 04:32:28] "GET / HTTP/1.1" 200 -
