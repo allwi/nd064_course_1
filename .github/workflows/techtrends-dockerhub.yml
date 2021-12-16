@@ -22,6 +22,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: project
-          file: {context}/dockerfile
+          file: project/dockerfile
           push: true
           tags: allwicher/techtrends:latest
